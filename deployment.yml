@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: myapp-sat-deployment
+  namespace: default
 spec:
   selector:
     matchLabels:
@@ -13,7 +14,8 @@ spec:
     spec:
       containers:
       - name: sat-app-container
-        image: satapp:1.0
+        image: gcr.io/dps-parent-project/satdockerapp:v1.0.1
+        imagePullPolicy: IfNotPresent
         resources:
           limits:
             memory: "128Mi"
