@@ -13,8 +13,8 @@ WORKDIR "/src/."
 RUN dotnet build "DockerSupport.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "DockerSupport.csproj" -c Release -o /app/publish --self-contained --runtime linux-64
-
+#RUN dotnet publish "DockerSupport.csproj" -c Release -o /app/publish
+RUN  dotnet publish -c Release --self-contained --runtime linux-x64 -o out
 
 FROM base AS final
 WORKDIR /app
