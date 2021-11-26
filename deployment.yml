@@ -14,8 +14,7 @@ spec:
     spec:
       containers:
       - name: satapp-container
-        image: gcr.io/dps-parent-project/satapp:tagversion
-        imagePullPolicy: IfNotPresent
+        image: gcr.io/dps-parent-project/satapp:tagversion        
         resources:
           limits:
             memory: "128Mi"
