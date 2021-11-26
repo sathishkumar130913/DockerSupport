@@ -15,7 +15,8 @@ RUN dotnet build "DockerSupport.csproj" -c Release -o /app/build
 FROM build AS publish
 #RUN dotnet publish "DockerSupport.csproj" -c Release -o /app/publish
 #RUN  dotnet publish -c Release --self-contained --runtime linux-x64 -o out
-RUN dotnet publish ./src/DockerSupport.csproj --self-contained --runtime linux-musl-x64 --configuration Release --output /app/publish
+#RUN dotnet publish ./src/DockerSupport.csproj --self-contained --runtime linux-musl-x64 --configuration Release --output /app/publish
+RUN dotnet publish "DockerSupport.csproj" -c Release -o /app/publish --self-contained --runtime linux-x64
 
 FROM base AS final
 WORKDIR /app
