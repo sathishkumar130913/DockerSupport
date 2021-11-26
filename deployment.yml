@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: myapp-sat-deployment
+  name: satapp-deployment
   namespace: default
 spec:
   selector:
     matchLabels:
-      app: sat-app-pod1
+      app: satapp
   template:
     metadata:
       labels:
-        app: sat-app-pod1
+        app: satapp
     spec:
       containers:
-      - name: sat-app-container
-        image: gcr.io/dps-parent-project/satdockerapp:v1.0.1
+      - name: satapp-container
+        image: gcr.io/dps-parent-project/satapp:tagversion
         imagePullPolicy: IfNotPresent
         resources:
           limits:
