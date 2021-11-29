@@ -1,0 +1,65 @@
+Docker push and build
+======================
+1)
+docker build -t <image full bame with tag > .
+ocker push <image full path>
+docker push gcr.io/dps-parent-project/ed-app:v1
+
+docker run --name ed-api -p 8081:80 gcr.io/dps-parent-project/app-app:v1
+
+2)
+gcloud auth login
+ 
+The next is to authenticate to the registry:
+
+a) If you are using a Linux based image, you need to use "gcloud auth configure-docker" (https://cloud.google.com/container-registry/docs/advanced-authentication).
+
+b) For Container-Optimized OS (COS), the command is “docker-credential-gcr configure-docker” (https://cloud.google.com/container-optimized-os/docs/how-to/run-container-instance#accessing_private_google_container_registry)
+
+3) remove all docker images
+
+docker image rm $(docker image ls --format '{{.Repository}}:{{.Tag}}' | grep '^gcr.io/dps-parent-project/weatherapi')
+
+3)Docker composs:( to run multi contaoner applicaiton)
+
+
+
+1)docker-compose -v 
+docker-compose -version 
+
+validate the docker-compose
+========================
+docker-compose config
+
+to run
+==========
+
+docker-compose up -d 
+
+docker-compose ps 
+
+stop
+===
+docker-compose down
+
+helm-A pakage manger 
+================
+
+choco install kubernetes-helm
+
+helm version
+
+befor move to below navigate toe your charst folder 
+
+helm install <myname > ./<appname on the solun/
+
+helm list 
+
+helm uninstall <helmappname>
+
+helm upgrade --install my-test-app-release . \
+  --namespace=local \
+  --set global.env.ASPNETCORE_ENVIRONMENT="Staging" \          # global value
+  --set test-app-api.env.ASPNETCORE_ENVIRONMENT="Development"  # sub-chart value
+
+
