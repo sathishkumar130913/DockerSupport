@@ -14,7 +14,8 @@ spec:
     spec:
       containers:
       - name: ed-app-container
-        image: gcr.io/dps-parent-project/ed-app:tagversion       
+        image: gcr.io/dps-parent-project/ed-app:tagversion
+        imagePullPolicy: Always
         resources:
           limits:
             memory: "128Mi"
