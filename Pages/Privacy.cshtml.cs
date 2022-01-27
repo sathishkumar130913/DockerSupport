@@ -14,6 +14,7 @@ namespace DockerSupport.Pages
 
         public PrivacyModel(ILogger<PrivacyModel> logger)
         {
+
             _logger = logger;
         }
 
